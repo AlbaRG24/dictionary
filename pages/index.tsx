@@ -1,60 +1,57 @@
-import React from "react"
-import { GetStaticProps } from "next"
-import Layout from "../components/Layout"
-import Post, { PostProps } from "../components/Post"
+import React, { useEffect, useState } from "react";
+import { GetServerSideProps } from "next";
+import Layout from "../components/layout/layout";
+import { Divider, Input } from "antd";
+import styles from "../styles/idioms/index.module.css";
 
-export const getStaticProps: GetStaticProps = async () => {
-  const feed = [
-    {
-      id: "1",
-      title: "Prisma is the perfect ORM for Next.js",
-      content: "[Prisma](https://github.com/prisma/prisma) and Next.js go _great_ together!",
-      published: false,
-      author: {
-        name: "Nikolas Burk",
-        email: "burk@prisma.io",
-      },
-    },
-  ]
-  return { 
-    props: { feed }, 
-    revalidate: 10 
-  }
-}
-
-type Props = {
-  feed: PostProps[]
-}
-
-const Blog: React.FC<Props> = (props) => {
+const HomePage: React.FC<Response> = (props) => {
+  const { Search } = Input
   return (
     <Layout>
-      <div className="page">
-        <h1>Public Feed</h1>
-        <main>
-          {props.feed.map((post) => (
-            <div key={post.id} className="post">
-              <Post post={post} />
-            </div>
-          ))}
-        </main>
-      </div>
-      <style jsx>{`
-        .post {
-          background: white;
-          transition: box-shadow 0.1s ease-in;
-        }
-
-        .post:hover {
-          box-shadow: 1px 1px 3px #aaa;
-        }
-
-        .post + .post {
-          margin-top: 2rem;
-        }
-      `}</style>
+      <main>
+        <section className={styles.searchBlock}>
+          <h1>Slangopedia</h1>
+          <div className={styles.search}>
+            <Search placeholder="Search" />
+          </div>
+        </section>
+        <section className={styles.intro}>
+          <p>
+            Slangopedia is a community-driven dictionary of expressions and
+            slang.
+            <br />
+            Discover the colorful world of expressions and slang, crafted and
+            curated by people just like you.
+          </p>
+        </section>
+        <section className={`${styles.block} ${styles.idiomOfTheDay}`}>
+          <div className={styles.headings}>
+            <h2>Idiom of the day</h2>
+            <a href="#" className={styles.viewAll}>
+              View all
+            </a>
+          </div>
+          <div className={styles.content}>
+            <h3>Hit the sack</h3>
+            <p>Go to sleep</p>
+          </div>
+        </section>
+        <Divider></Divider>
+        <section className={`${styles.block} ${styles.recentSearches}`}>
+          <div className={styles.headings}>
+            <h2>Recent searches</h2>
+            <a href="#" className={styles.viewAll}>
+              View all
+            </a>
+          </div>
+          <div className={styles.content}>
+            <p>Recent search 1</p>
+            <p>Recent search 2</p>
+          </div>
+        </section>
+      </main>
     </Layout>
-  )
-}
+  );
+};
 
-export default Blog
+export default HomePage;
