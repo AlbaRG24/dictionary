@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
 import Layout from "../components/layout/layout";
 import { Divider, Input } from "antd";
-import styles from "../styles/idioms/index.module.css";
+import styles from "../styles/homepage/index.module.css";
 
 const HomePage: React.FC<Response> = (props) => {
   const { Search } = Input
