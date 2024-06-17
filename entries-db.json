@@ -1,0 +1,109 @@
+{
+  "entries": [
+    {
+      "id": "1",
+      "title": "hit the sack",
+      "definition": "go to bed in order to sleep",
+      "origin": "It's assumed that both “hit the sack” and “hit the hay” came from the fact that beds used to be made of cloth stuffed with hay. This “sack” was one's actual bed. Some have also suggested that the word “hit” is literal and that people used to hit their bedding in order to fluff it up.",
+      "examples": [
+        "I’ve got a busy day tomorrow, so I think I’ll hit the sack.",
+        "After the long road trip, we were all dead tired and ready to hit the hay as soon as we reached home",
+        "After I hit the sack, I read for some time before turning off the lights and going to sleep."
+      ],
+      "source": "Cambridge Academic Content Dictionary © Cambridge University Press)",
+      "synonyms": [
+        "Hit the hay",
+        "Go to bed",
+        "Retire",
+        "Call it a day",
+        "Go to sleep"
+      ],
+      "author": "Alba Rodriguez"
+    },
+    {
+      "id": "2",
+      "title": "a raw deal",
+      "definition": "unfair treatment",
+      "origin": "This expression originated in America and was first used in the early 1900s. The Canadian dictionary described the expression as swindle in 1912, although this meaning is no longer used. It was first used by E. C. Bentley in 1940.",
+      "examples": [
+        "Everyone was rewarded except her. She felt her dad’s actions were a raw deal for her.",
+        "Even after working in the company for five years, she continued getting a raw deal in her salary.",
+        "The teacher congratulated everyone but left me out despite scoring the same marks. It was a raw deal, and I felt so low."
+      ],
+      "source": "The idioms",
+      "author": "Alba Rodriguez"
+    },
+    {
+      "id": "3",
+      "title": "break the bank",
+      "definition": "to engage in a purchase or activity that exceeds one’s financial limitations or budgetary constraints",
+      "origin": "The idiom “break the bank” has a rich financial origin shrouded in historical intrigue. Scholars trace its roots to the early 1600s, when gamblers won more money than the house could pay out, draining the establishment’s funds. However, some pinpoint its origins closer to 1873, when an Englishman named Joseph Jagger famously won $350,000—a staggering fortune at the time—at the Casino de Monte Carlo. This immense win was said to have “broken the bank,” severely testing the casino’s financial reserves. In French, the term “faire sauter la banque,” literally “blown up the bank,” described a scenario where a gambler won more chips than the table held. When this occurred, a black cloth was draped over the table until reserve chips arrived, often delayed until the house recovered losses from other gamblers. The phrase transcended its gambling roots, embedding itself in the English lexicon. It even inspired a popular television quiz show, “Break the Bank,” which captivated audiences through various iterations from the 1940s to the 2000s.",
+      "examples": [
+        "The new smartphone was so expensive it nearly broke the bank, but she couldn’t resist buying it.",
+        "Planning a lavish wedding can easily break the bank if you’re not careful with expenses."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba Rodriguez"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Alba Rodriguez",
+      "email": "alba@gmail.com",
+      "contributions": [
+        {
+          "id": "1",
+          "title": "Hit the sack",
+          "definition": "go to bed in order to sleep",
+          "origin": "It's assumed that both “hit the sack” and “hit the hay” came from the fact that beds used to be made of cloth stuffed with hay. This “sack” was one's actual bed. Some have also suggested that the word “hit” is literal and that people used to hit their bedding in order to fluff it up.",
+          "examples": [
+            "I’ve got a busy day tomorrow, so I think I’ll hit the sack.",
+            "After the long road trip, we were all dead tired and ready to hit the hay as soon as we reached home",
+            "After I hit the sack, I read for some time before turning off the lights and going to sleep."
+          ],
+          "source": "Cambridge Academic Content Dictionary © Cambridge University Press)",
+          "synonyms": [
+            "Hit the hay",
+            "Go to bed",
+            "Retire",
+            "Call it a day",
+            "Go to sleep"
+          ],
+          "author": "Alba Rodriguez"
+        },
+        {
+          "id": "2",
+          "title": "A raw deal",
+          "definition": "unfair treatment",
+          "origin": "This expression originated in America and was first used in the early 1900s. The Canadian dictionary described the expression as swindle in 1912, although this meaning is no longer used. It was first used by E. C. Bentley in 1940.",
+          "examples": [
+            "Everyone was rewarded except her. She felt her dad’s actions were a raw deal for her.",
+            "Even after working in the company for five years, she continued getting a raw deal in her salary.",
+            "The teacher congratulated everyone but left me out despite scoring the same marks. It was a raw deal, and I felt so low."
+          ],
+          "source": "The idioms",
+          "author": "Alba Rodriguez"
+        },
+        {
+          "id": "3",
+          "title": "Break the bank",
+          "definition": "to engage in a purchase or activity that exceeds one’s financial limitations or budgetary constraints",
+          "origin": "The idiom “break the bank” has a rich financial origin shrouded in historical intrigue. Scholars trace its roots to the early 1600s, when gamblers won more money than the house could pay out, draining the establishment’s funds. However, some pinpoint its origins closer to 1873, when an Englishman named Joseph Jagger famously won $350,000—a staggering fortune at the time—at the Casino de Monte Carlo. This immense win was said to have “broken the bank,” severely testing the casino’s financial reserves. In French, the term “faire sauter la banque,” literally “blown up the bank,” described a scenario where a gambler won more chips than the table held. When this occurred, a black cloth was draped over the table until reserve chips arrived, often delayed until the house recovered losses from other gamblers. The phrase transcended its gambling roots, embedding itself in the English lexicon. It even inspired a popular television quiz show, “Break the Bank,” which captivated audiences through various iterations from the 1940s to the 2000s.",
+          "examples": [
+            "The new smartphone was so expensive it nearly broke the bank, but she couldn’t resist buying it.",
+            "Planning a lavish wedding can easily break the bank if you’re not careful with expenses."
+          ],
+          "source": "theidioms.com",
+          "author": "Alba Rodriguez"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Peter Martins",
+      "email": "peter@gmail.com",
+      "contributions": []
+    }
+  ]
+}

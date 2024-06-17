@@ -18,6 +18,8 @@
 .icon {
   color: white;
   font-size: 24px;
+  z-index: 1001;
+
 }
 .paddedIcon {
   padding-left: 10px;
@@ -27,10 +29,11 @@
   font-size: 30px;
 }
 .menu {
-  border: none;
   margin: auto 0;
   display: flex;
   flex-direction: column;
   background-color:#001529;
   color: white;
+  position: absolute; 
+  z-index: 1000;
 }
