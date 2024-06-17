@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { Header } from "./header";
-import Footer from "./Footer";
+import styles from "./layout.module.css"
 
 type Props = {
   children: ReactNode;
@@ -10,7 +10,7 @@ const Layout: React.FC<Props> = ({ children }) => {
     <div>
       <Header />
       <div>{children}</div>
-      <Footer />
+      <footer className={styles.footer}>Slangopedia(v1) 2024</footer>
     </div>
   );
 };

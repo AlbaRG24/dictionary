@@ -1,25 +1,31 @@
 import React, { useState } from "react";
 import styles from "./header.module.css";
-import { Layout, Menu, Button, ConfigProvider } from "antd";
+import { Layout, Menu, Button, ConfigProvider, MenuProps } from "antd";
 import { MenuOutlined, UserOutlined, HeartOutlined } from "@ant-design/icons";
+import { ItemType } from "antd/es/menu/interface";
 
 export const Header = () => {
   const { Header } = Layout;
   const [collapsed, setCollapsed] = useState(true);
-  const items = [
+  const [current, setCurrent] = useState("Search");
+
+  const items: ItemType[] = [
     {
-      label: "Search",
-      key: "home",
+      label: <a href="/">Search</a>,
+      key: "1",
     },
     {
-      label: "A-Z",
-      key: "definitions",
+      label: <a href="/idioms">A-Z</a>,
+      key: "2",
     },
     {
-      label: "Add an idiom",
-      key: "contribute",
+      label: "Contribute",
+      key: "3",
     },
   ];
+  const onClick: MenuProps["onClick"] = (e) => {
+    setCurrent(e.key);
+  };
 
   return (
     <ConfigProvider
@@ -30,14 +36,22 @@ export const Header = () => {
             itemColor: "white",
             activeBarBorderWidth: 0,
           },
+          Layout: {
+            headerBg: "#164773"
+          }
         },
       }}
     >
       <Header className={styles.header}>
         <nav className={styles.navbar}>
-          <div>
+          <div className={styles.navItem}>
             <Button
-              icon={<MenuOutlined className={`${styles.icon} ${styles.paddedIcon}`} style={{ fontSize: "22px"}}/>}
+              icon={
+                <MenuOutlined
+                  className={`${styles.icon} ${styles.paddedIcon}`}
+                  style={{ fontSize: "22px" }}
+                />
+              }
               onClick={() => setCollapsed(!collapsed)}
               className={`${styles.btn} ${styles.navItem}`}
               type="text"
@@ -47,6 +61,8 @@ export const Header = () => {
               mode="vertical"
               inlineCollapsed={collapsed}
               className={styles.menu}
+              onClick={onClick}
+              selectedKeys={[current]}
             />
           </div>
           <div className={styles.navItem}>
