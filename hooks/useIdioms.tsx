@@ -11,8 +11,10 @@ export type Entry = {
   author: string;
 };
 
+const idiomsUrl = "http://localhost:4000/idioms"
+
 export const fetchIdioms = async (): Promise<Entry[]> => {
-  const response = await fetch("http://localhost:4000/entries");
+  const response = await fetch(idiomsUrl);
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
@@ -20,7 +22,7 @@ export const fetchIdioms = async (): Promise<Entry[]> => {
 };
 
 export const fetchIdiomById = async (id: string): Promise<Entry> => {
-  const response = await fetch(`http://localhost:4000/entries/${id}`);
+  const response = await fetch(`${idiomsUrl}/${id}`);
   return response.json();
 };
 

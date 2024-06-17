@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/entry.module.css";
+import styles from "../../styles/idiom.module.css";
 import { Skeleton } from "antd";
 import { useIdioms } from "../../hooks/useIdioms";
 import { ErrorMessage } from "../error-message";
