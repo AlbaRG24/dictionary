@@ -2,8 +2,8 @@ import { QueryKey, useQuery } from "@tanstack/react-query";
 
 export type Entry = {
   id: string;
-  title: string;
-  definition: string;
+  idiom: string;
+  meaning: string;
   origin?: string;
   examples: string[];
   synonyms?: string[];

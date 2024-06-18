@@ -2,108 +2,224 @@
   "idioms": [
     {
       "id": "1",
-      "title": "hit the sack",
-      "definition": "go to bed in order to sleep",
-      "origin": "It's assumed that both “hit the sack” and “hit the hay” came from the fact that beds used to be made of cloth stuffed with hay. This “sack” was one's actual bed. Some have also suggested that the word “hit” is literal and that people used to hit their bedding in order to fluff it up.",
+      "idiom": "barking up the wrong tree",
+      "meaning": "to pursue a mistaken or misguided course of action",
+      "synonyms": ["misguided", "misdirected", "off track"],
+      "origin": "This idiom originated in the early 19th century and is rooted in hunting practices. Dogs, particularly hunting dogs, often bark at the base of trees where they think prey is hiding. However, sometimes the prey has escaped to a different tree, leaving the dog barking up the wrong one. This imagery conveys the futility and misdirection of one's efforts.",
       "examples": [
-        "I’ve got a busy day tomorrow, so I think I’ll hit the sack.",
-        "After the long road trip, we were all dead tired and ready to hit the hay as soon as we reached home",
-        "After I hit the sack, I read for some time before turning off the lights and going to sleep."
+        "If you think I’m the one who leaked the information, you’re barking up the wrong tree.",
+        "His attempts to fix the engine were barking up the wrong tree since the problem was with the transmission."
       ],
-      "source": "Cambridge Academic Content Dictionary © Cambridge University Press)",
-      "synonyms": [
-        "Hit the hay",
-        "Go to bed",
-        "Retire",
-        "Call it a day",
-        "Go to sleep"
-      ],
-      "author": "Alba Rodriguez"
+      "source": "theidioms.com",
+      "author": "Alba"
     },
     {
       "id": "2",
-      "title": "a raw deal",
-      "definition": "unfair treatment",
-      "origin": "This expression originated in America and was first used in the early 1900s. The Canadian dictionary described the expression as swindle in 1912, although this meaning is no longer used. It was first used by E. C. Bentley in 1940.",
+      "idiom": "bite the bullet",
+      "meaning": "to endure a painful or otherwise unpleasant situation that is seen as unavoidable",
+      "synonyms": ["endure", "face the music", "suck it up"],
+      "origin": "This idiom has its origins in the days before anesthesia, when soldiers would bite on a bullet during surgery to help endure the pain. It was seen as a way to avoid crying out or showing weakness. The phrase gained broader usage in the 19th century to mean facing up to a difficult situation bravely.",
       "examples": [
-        "Everyone was rewarded except her. She felt her dad’s actions were a raw deal for her.",
-        "Even after working in the company for five years, she continued getting a raw deal in her salary.",
-        "The teacher congratulated everyone but left me out despite scoring the same marks. It was a raw deal, and I felt so low."
+        "With the deadline looming, he decided to bite the bullet and finish the report overnight.",
+        "She knew she had to bite the bullet and confront her boss about the unfair treatment."
       ],
-      "source": "The idioms",
-      "author": "Alba Rodriguez"
+      "source": "theidioms.com",
+      "author": "Alba"
     },
     {
       "id": "3",
-      "title": "break the bank",
-      "definition": "to engage in a purchase or activity that exceeds one’s financial limitations or budgetary constraints",
-      "origin": "The idiom “break the bank” has a rich financial origin shrouded in historical intrigue. Scholars trace its roots to the early 1600s, when gamblers won more money than the house could pay out, draining the establishment’s funds. However, some pinpoint its origins closer to 1873, when an Englishman named Joseph Jagger famously won $350,000—a staggering fortune at the time—at the Casino de Monte Carlo. This immense win was said to have “broken the bank,” severely testing the casino’s financial reserves. In French, the term “faire sauter la banque,” literally “blown up the bank,” described a scenario where a gambler won more chips than the table held. When this occurred, a black cloth was draped over the table until reserve chips arrived, often delayed until the house recovered losses from other gamblers. The phrase transcended its gambling roots, embedding itself in the English lexicon. It even inspired a popular television quiz show, “Break the Bank,” which captivated audiences through various iterations from the 1940s to the 2000s.",
+      "idiom": "a dime a dozen",
+      "meaning": "something very common and of little value",
+      "synonyms": ["common", "plentiful", "cheap"],
+      "origin": "The phrase dates back to the 19th century in the United States, where it referred to the price of goods like eggs or apples, which could be purchased in large quantities for very little money. It emphasizes the idea of abundance and low value.",
+      "examples": [
+        "Cheap souvenirs are a dime a dozen in tourist areas.",
+        "Books like these are a dime a dozen, but this one is special."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba"
+    },
+    {
+      "id": "4",
+      "idiom": "beat around the bush",
+      "meaning": "to avoid discussing something directly",
+      "synonyms": ["evade", "dodge", "circumvent"],
+      "origin": "This idiom dates back to medieval hunting practices, where hunters would beat around bushes to flush out game. This was often a preliminary action before the main event. Over time, it came to mean avoiding the main topic and not getting to the point.",
+      "examples": [
+        "Stop beating around the bush and tell me what you really think.",
+        "He tends to beat around the bush when discussing sensitive topics."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba"
+    },
+    {
+      "id": "5",
+      "idiom": "burning the midnight oil",
+      "meaning": "to work late into the night",
+      "synonyms": ["working late", "staying up", "pulling an all-nighter"],
+      "origin": "Before electric lighting, people used oil lamps to light their homes. Working late into the night required burning more oil, thus the phrase. It has come to mean putting in extra hours, especially in study or work.",
+      "examples": [
+        "She’s been burning the midnight oil studying for her exams.",
+        "He had to burn the midnight oil to finish the project on time."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba"
+    },
+    {
+      "id": "6",
+      "idiom": "caught between a rock and a hard place",
+      "meaning": "to be faced with two difficult choices",
+      "synonyms": ["dilemma", "quandary", "predicament"],
+      "origin": "This phrase has been in use since the early 20th century and is thought to originate from American mining practices. Miners often faced dangerous conditions that left them with no good options, hence being caught between a rock (the mine walls) and a hard place (dangerous conditions).",
+      "examples": [
+        "He was caught between a rock and a hard place, having to choose between his job and his family.",
+        "She felt caught between a rock and a hard place when deciding whether to report her friend."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba"
+    },
+    {
+      "id": "7",
+      "idiom": "cost an arm and a leg",
+      "meaning": "to be extremely expensive",
+      "synonyms": ["expensive", "costly", "high-priced"],
+      "origin": "The exact origin is unclear, but it became popular in the mid-20th century. It suggests that something is so costly that one would have to sacrifice much to obtain it, as losing an arm or a leg would be a huge personal cost.",
+      "examples": [
+        "The new car cost an arm and a leg, but it’s worth it.",
+        "Renovating the house is going to cost an arm and a leg."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba"
+    },
+    {
+      "id": "8",
+      "idiom": "cry over spilt milk",
+      "meaning": "to lament something that cannot be undone",
+      "synonyms": ["lament", "regret", "mourn"],
+      "origin": "The phrase dates back to the 17th century and is attributed to James Howell, who wrote 'No weeping for shed milk.' The idea is that once milk is spilt, it cannot be recovered, so there is no use in being upset over it.",
+      "examples": [
+        "It’s no use crying over spilt milk; we can’t change what happened.",
+        "She always tells her children not to cry over spilt milk and to move on from their mistakes."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba"
+    },
+    {
+      "id": "9",
+      "idiom": "break the bank",
+      "meaning": "to engage in a purchase or activity that exceeds one’s financial limitations or budgetary constraints",
+      "synonyms": ["exceed budget", "overspend", "go broke"],
+      "origin": "The idiom 'break the bank' has a rich financial origin shrouded in historical intrigue. Scholars trace its roots to the early 1600s, when gamblers won more money than the house could pay out, draining the establishment’s funds. However, some pinpoint its origins closer to 1873, when an Englishman named Joseph Jagger famously won $350,000—a staggering fortune at the time—at the Casino de Monte Carlo. This immense win was said to have 'broken the bank,' severely testing the casino’s financial reserves. In French, the term 'faire sauter la banque,' literally 'blown up the bank,' described a scenario where a gambler won more chips than the table held. When this occurred, a black cloth was draped over the table until reserve chips arrived, often delayed until the house recovered losses from other gamblers. The phrase transcended its gambling roots, embedding itself in the English lexicon. It even inspired a popular television quiz show, 'Break the Bank,' which captivated audiences through various iterations from the 1940s to the 2000s.",
       "examples": [
         "The new smartphone was so expensive it nearly broke the bank, but she couldn’t resist buying it.",
         "Planning a lavish wedding can easily break the bank if you’re not careful with expenses."
       ],
       "source": "theidioms.com",
-      "author": "Alba Rodriguez"
-    }
-  ],
-  "users": [
-    {
-      "id": "1",
-      "name": "Alba Rodriguez",
-      "email": "alba@gmail.com",
-      "contributions": [
-        {
-          "id": "1",
-          "title": "Hit the sack",
-          "definition": "go to bed in order to sleep",
-          "origin": "It's assumed that both “hit the sack” and “hit the hay” came from the fact that beds used to be made of cloth stuffed with hay. This “sack” was one's actual bed. Some have also suggested that the word “hit” is literal and that people used to hit their bedding in order to fluff it up.",
-          "examples": [
-            "I’ve got a busy day tomorrow, so I think I’ll hit the sack.",
-            "After the long road trip, we were all dead tired and ready to hit the hay as soon as we reached home",
-            "After I hit the sack, I read for some time before turning off the lights and going to sleep."
-          ],
-          "source": "Cambridge Academic Content Dictionary © Cambridge University Press)",
-          "synonyms": [
-            "Hit the hay",
-            "Go to bed",
-            "Retire",
-            "Call it a day",
-            "Go to sleep"
-          ],
-          "author": "Alba Rodriguez"
-        },
-        {
-          "id": "2",
-          "title": "A raw deal",
-          "definition": "unfair treatment",
-          "origin": "This expression originated in America and was first used in the early 1900s. The Canadian dictionary described the expression as swindle in 1912, although this meaning is no longer used. It was first used by E. C. Bentley in 1940.",
-          "examples": [
-            "Everyone was rewarded except her. She felt her dad’s actions were a raw deal for her.",
-            "Even after working in the company for five years, she continued getting a raw deal in her salary.",
-            "The teacher congratulated everyone but left me out despite scoring the same marks. It was a raw deal, and I felt so low."
-          ],
-          "source": "The idioms",
-          "author": "Alba Rodriguez"
-        },
-        {
-          "id": "3",
-          "title": "Break the bank",
-          "definition": "to engage in a purchase or activity that exceeds one’s financial limitations or budgetary constraints",
-          "origin": "The idiom “break the bank” has a rich financial origin shrouded in historical intrigue. Scholars trace its roots to the early 1600s, when gamblers won more money than the house could pay out, draining the establishment’s funds. However, some pinpoint its origins closer to 1873, when an Englishman named Joseph Jagger famously won $350,000—a staggering fortune at the time—at the Casino de Monte Carlo. This immense win was said to have “broken the bank,” severely testing the casino’s financial reserves. In French, the term “faire sauter la banque,” literally “blown up the bank,” described a scenario where a gambler won more chips than the table held. When this occurred, a black cloth was draped over the table until reserve chips arrived, often delayed until the house recovered losses from other gamblers. The phrase transcended its gambling roots, embedding itself in the English lexicon. It even inspired a popular television quiz show, “Break the Bank,” which captivated audiences through various iterations from the 1940s to the 2000s.",
-          "examples": [
-            "The new smartphone was so expensive it nearly broke the bank, but she couldn’t resist buying it.",
-            "Planning a lavish wedding can easily break the bank if you’re not careful with expenses."
-          ],
-          "source": "theidioms.com",
-          "author": "Alba Rodriguez"
-        }
-      ]
+      "author": "Alba"
     },
     {
-      "id": "2",
-      "name": "Peter Martins",
-      "email": "peter@gmail.com",
-      "contributions": []
+      "id": "10",
+      "idiom": "hit the nail on the head",
+      "meaning": "to describe exactly what is causing a situation or problem",
+      "synonyms": ["accurate", "precise", "spot-on"],
+      "origin": "This idiom dates back to the early 16th century. It is thought to come from carpentry, where hitting the nail on the head means striking it precisely, ensuring that it goes straight into the wood. The phrase has come to mean identifying something accurately.",
+      "examples": [
+        "You’ve hit the nail on the head with your analysis of the situation.",
+        "Her comment really hit the nail on the head about why the project failed."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba"
+    },
+    {
+      "id": "11",
+      "idiom": "kick the bucket",
+      "meaning": "to die",
+      "synonyms": ["die", "pass away", "decease"],
+      "origin": "The phrase 'kick the bucket' has been in use since at least the 18th century. One theory is that it refers to a method of execution or suicide where a person would stand on a bucket with a noose around their neck and then kick the bucket away, leading to their death. Another theory is that it refers to the way pigs were hung up by their feet on a bucket or beam before being slaughtered.",
+      "examples": [
+        "He was a cheerful man who cracked jokes until the day he kicked the bucket.",
+        "She’s getting on in years, but she has no plans of kicking the bucket anytime soon."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba"
+    },
+    {
+      "id": "12",
+      "idiom": "let the cat out of the bag",
+      "meaning": "to reveal a secret unintentionally or by mistake",
+      "synonyms": ["reveal", "disclose", "spill the beans"],
+      "origin": "This idiom has been around since at least the 18th century. It may come from a market scam where farmers would sell a pig in a sack, but if the buyer didn't check, they might actually end up with a less valuable cat. Revealing the cat instead of the pig would 'let the cat out of the bag,' thus exposing the secret.",
+      "examples": [
+        "I was planning a surprise party for her, but John let the cat out of the bag.",
+        "He accidentally let the cat out of the bag about the merger during the meeting."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba"
+    },
+    {
+      "id": "13",
+      "idiom": "off the beaten path",
+      "meaning": "to go to a place not usually visited by tourists; to do something different or unusual",
+      "synonyms": ["unconventional", "unusual", "less traveled"],
+      "origin": "This idiom dates back to the 1800s and refers to trails or paths that are not commonly used. It suggests venturing into less familiar or more remote areas.",
+      "examples": [
+        "We prefer to travel off the beaten path to discover hidden gems.",
+        "Her interests are a bit off the beaten path compared to her peers."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba"
+    },
+    {
+      "id": "14",
+      "idiom": "piece of cake",
+      "meaning": "something very easy to do",
+      "synonyms": ["easy", "simple", "effortless"],
+      "origin": "This idiom originated in the 19th century in the United States. It may come from cakewalks, which were competitions where slaves performed dances, with the winners receiving cake as a prize. The dances were considered easy and fun, thus giving rise to the term.",
+      "examples": [
+        "The test was a piece of cake; I finished it in no time.",
+        "Installing the new software was a piece of cake."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba"
+    },
+    {
+      "id": "15",
+      "idiom": "spill the beans",
+      "meaning": "to reveal secret information unintentionally or indiscreetly",
+      "synonyms": ["reveal", "disclose", "let slip"],
+      "origin": "This idiom dates back to ancient Greece, where people would vote by placing beans in a jar. Spilling the beans would reveal the results prematurely. It has come to mean revealing a secret.",
+      "examples": [
+        "She spilled the beans about the surprise party.",
+        "Don’t spill the beans about the promotion until it’s officially announced."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba"
+    },
+    {
+      "id": "16",
+      "idiom": "the ball is in your court",
+      "meaning": "it is up to you to make the next decision or take action",
+      "synonyms": ["your move", "your turn", "up to you"],
+      "origin": "This idiom comes from tennis, where the ball is literally in one player’s court, meaning it is their turn to play. It has been used more broadly since the mid-20th century to indicate responsibility or initiative.",
+      "examples": [
+        "I’ve done all I can; now the ball is in your court.",
+        "She made her offer, so the ball is in his court now."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba"
+    },
+    {
+      "id": "17",
+      "idiom": "under the weather",
+      "meaning": "feeling ill or unwell",
+      "synonyms": ["ill", "unwell", "sick"],
+      "origin": "This idiom originates from maritime language. When sailors were feeling seasick, they would go below deck to get away from the weather and waves, hence feeling 'under the weather.'",
+      "examples": [
+        "I’m feeling a bit under the weather today, so I’m going to stay home.",
+        "She’s been under the weather for a few days with a bad cold."
+      ],
+      "source": "theidioms.com",
+      "author": "Alba"
     }
   ]
 }
