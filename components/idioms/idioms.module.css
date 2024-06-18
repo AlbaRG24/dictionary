@@ -1,0 +1,10 @@
+.container {
+    width: 380px;
+    margin: 0 auto;
+    padding-top: var(--padding);
+}
+
+.title {
+    color: #164773;
+    font-weight: 500;
+}

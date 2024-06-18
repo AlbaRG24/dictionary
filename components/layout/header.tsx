@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/layout/header.module.css";
+import styles from "./header.module.css";
 import { Layout, Menu, Button, ConfigProvider, MenuProps } from "antd";
 import { MenuOutlined, UserOutlined, HeartOutlined } from "@ant-design/icons";
 import { ItemType } from "antd/es/menu/interface";
@@ -36,6 +36,9 @@ export const Header = () => {
             itemColor: "white",
             activeBarBorderWidth: 0,
           },
+          Layout: {
+            headerBg: "#164773"
+          }
         },
       }}
     >

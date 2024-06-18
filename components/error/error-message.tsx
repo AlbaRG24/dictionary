@@ -1,4 +1,4 @@
-import styles from "../styles/error-message.module.css";
+import styles from "./error-message.module.css";
 export const ErrorMessage = () => {
   return (
     <div className={styles.container}>
