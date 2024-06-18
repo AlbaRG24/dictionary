@@ -10,7 +10,7 @@ export const Idioms = () => {
   if (isLoading) return <Skeleton />;
   if (isError || !data) return <div>Error</div>;
 
-  const sorted = data.sort((a, b) => {
+  const alphabeticallySortedIdiomsList = data.sort((a, b) => {
     const idiomA = a.idiom.toLowerCase();
     const idiomB = b.idiom.toLowerCase();
 
@@ -23,19 +23,17 @@ export const Idioms = () => {
     return 0;
   });
 
-  console.log({ sorted });
-
   return (
     <div className={styles.container}>
       <List
         className={styles.list}
         size="small"
         bordered
-        dataSource={sorted}
-        renderItem={(item: Entry, index: number) => {
+        dataSource={alphabeticallySortedIdiomsList}
+        renderItem={(item: Entry) => {
           return (
             <List.Item className={styles.listItem}>
-              <Link href={`/idioms/${index + 1}`}>
+              <Link href={`/idioms/${item.id}`}>
                 <List.Item.Meta
                   title={<a className={styles.title}>{item.idiom}</a>}
                   description={item.meaning}
