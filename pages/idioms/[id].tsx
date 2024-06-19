@@ -26,13 +26,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const IdiomPage = ({ id }: { id: string }) => {
-  console.log({id})
-  const router = useRouter()
-  const idiomId = router.query.id
   const { getIdiomById } = useIdioms();
-  const { data, isLoading, isError } = getIdiomById(idiomId.toString());
+  const { data, isLoading, isError } = getIdiomById(id);
   const { idiom, meaning, origin, examples, synonyms, source, author } = data;
-  console.log({idiomId})
+  console.log({data, isError})
   if (isLoading) return <Skeleton />;
   if (isError || !data) return <ErrorMessage />;
 
