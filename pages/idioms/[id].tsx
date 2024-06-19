@@ -7,8 +7,10 @@ import { useIdioms } from "../../hooks/useIdioms";
 import { ErrorMessage } from "../../components/error/error-message";
 import { List } from "../../components/list/list";
 import styles from "../../styles/idioms/[id].module.css";
+import { useRouter } from "next/router";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  console.log({context})
   const queryClient = new QueryClient();
   const { id } = context.params;
   await queryClient.prefetchQuery(["idiomById", id], () =>
@@ -24,9 +26,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const IdiomPage = ({ id }: { id: string }) => {
+  console.log({id})
+  const router = useRouter()
+  const idiomId = router.query.id
   const { getIdiomById } = useIdioms();
-  const { data, isLoading, isError } = getIdiomById(id);
+  const { data, isLoading, isError } = getIdiomById(idiomId.toString());
   const { idiom, meaning, origin, examples, synonyms, source, author } = data;
+  console.log({idiomId})
   if (isLoading) return <Skeleton />;
   if (isError || !data) return <ErrorMessage />;
 

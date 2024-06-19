@@ -11,7 +11,7 @@ export type Entry = {
   author: string;
 };
 
-const idiomsUrl = "http://localhost:4000/idioms"
+const idiomsUrl = "http://localhost:4000/idioms";
 
 export const fetchIdioms = async (): Promise<Entry[]> => {
   const response = await fetch(idiomsUrl);
@@ -22,8 +22,15 @@ export const fetchIdioms = async (): Promise<Entry[]> => {
 };
 
 export const fetchIdiomById = async (id: string): Promise<Entry> => {
-  const response = await fetch(`${idiomsUrl}/${id}`);
-  return response.json();
+  if (id) {
+    const response = await fetch(`${idiomsUrl}/${id}`);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  } else {
+    throw new Error(`Id ${id} is invalid`);
+  }
 };
 
 export const useIdioms = () => {
