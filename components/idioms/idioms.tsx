@@ -23,6 +23,21 @@ export const Idioms = () => {
     return 0;
   });
 
+  const renderItem = (item: Entry) => (
+    <Link
+      href={`/idioms/${item.id}`}
+      aria-label={`View details for idiom: ${item.idiom}`}
+      passHref
+    >
+      <List.Item className={styles.listItem}>
+        <List.Item.Meta
+          title={<a>{item.idiom}</a>}
+          description={item.meaning}
+        />
+      </List.Item>
+    </Link>
+  );
+
   return (
     <div className={styles.container}>
       <List
@@ -30,18 +45,7 @@ export const Idioms = () => {
         size="small"
         bordered
         dataSource={alphabeticallySortedIdiomsList}
-        renderItem={(item: Entry) => {
-          return (
-            <List.Item className={styles.listItem}>
-              <Link href={`/idioms/${item.id}`}>
-                <List.Item.Meta
-                  title={<a className={styles.title}>{item.idiom}</a>}
-                  description={item.meaning}
-                />
-              </Link>
-            </List.Item>
-          );
-        }}
+        renderItem={renderItem}
       />
     </div>
   );
