@@ -1,14 +1,12 @@
-import { Skeleton } from "antd";
 import Link from "next/link";
 import { Entry, useIdioms } from "../../hooks/useIdioms";
 import styles from "./idioms.module.css";
-import { List } from "antd";
 import React from "react";
 
-export const Idioms = () => {
+export default function Idioms() {
   const { getIdioms } = useIdioms();
   const { data, isLoading, isError } = getIdioms();
-  if (isLoading) return <Skeleton />;
+  // if (isLoading) return <Skeleton />;
   if (isError || !data) return <div>Error</div>;
 
   const alphabeticallySortedIdiomsList = data.sort((a, b) => {
@@ -36,24 +34,36 @@ export const Idioms = () => {
       aria-label={`View details for idiom: ${item.idiom}`}
       passHref
     >
-      <List.Item className={styles.listItem}>
+      {/* <List.Item className={styles.listItem}>
         <List.Item.Meta
           title={<Title idiom={item.idiom} />}
           description={item.meaning}
         />
-      </List.Item>
+      </List.Item> */}
     </Link>
   );
 
   return (
     <div className={styles.container}>
-      <List
+      {/* <List
         className={styles.list}
         size="small"
         bordered
         dataSource={alphabeticallySortedIdiomsList}
         renderItem={renderItem}
-      />
+      /> */}
+      {data.map((item) => (
+        <li>
+          <Link
+            key={item.id}
+            href={`/idioms/${item.id}`}
+            aria-label={`View details for idiom: ${item.idiom}`}
+            passHref
+          >
+            {item.idiom}
+          </Link>
+        </li>
+      ))}
     </div>
   );
-};
+}

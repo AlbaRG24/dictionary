@@ -2,7 +2,7 @@ import { AppProps } from "next/app";
 import "../styles/global.css";
 import Layout from "../components/layout/layout";
 import {
-  Hydrate,
+  HydrationBoundary,
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
@@ -23,11 +23,11 @@ const App = ({ Component, pageProps }: AppProps) => {
   );
   return (
     <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <Layout>
+      <HydrationBoundary state={pageProps.dehydratedState}>
+        {/* <Layout> */}
           <Component {...pageProps} state={pageProps.dehydratedState} />
-        </Layout>
-      </Hydrate>
+        {/* </Layout> */}
+      </HydrationBoundary>
     </QueryClientProvider>
   );
 };

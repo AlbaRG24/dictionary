@@ -1,4 +1,4 @@
-import { QueryKey, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 export type Entry = {
   id: string;
@@ -13,32 +13,29 @@ export type Entry = {
 
 const idiomsUrl = "http://localhost:4000/idioms";
 
-export const fetchIdioms = async (): Promise<Entry[]> => {
-  const response = await fetch(idiomsUrl);
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  return response.json();
-};
-
-export const fetchIdiomById = async (id: string): Promise<Entry> => {
-  if (id) {
-    const response = await fetch(`${idiomsUrl}/${id}`);
+export const useIdioms = () => {
+  const fetchIdioms = async (): Promise<Entry[]> => {
+    const response = await fetch(idiomsUrl);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
     return response.json();
-  } else {
-    throw new Error(`Id ${id} is invalid`);
-  }
-};
-
-export const useIdioms = () => {
-  const getIdioms = () => useQuery<Entry[], Error>(["idioms"], fetchIdioms);
+  };
+  const fetchIdiomById = async (id: string): Promise<Entry> => {
+    console.log(`Fetching idiom with ID: `);
+    const response = await fetch(`${idiomsUrl}/${id}`);
+    console.log({ response });
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  };
+  const getIdioms = () =>
+    useQuery<Entry[], Error>({ queryKey: ["idioms"], queryFn: fetchIdioms });
   const getIdiomById = (id: string) =>
     useQuery<Entry, Error>({
-      queryKey: ["idiomById", id] as QueryKey,
+      queryKey: ["idiomById", id],
       queryFn: () => fetchIdiomById(id),
     });
-  return { getIdioms, getIdiomById, fetchIdioms, fetchIdiomById };
-};
+    return { getIdioms, getIdiomById, fetchIdioms, fetchIdiomById };
+  };

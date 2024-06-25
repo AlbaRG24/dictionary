@@ -1,38 +1,46 @@
 import React from "react";
 import { GetServerSideProps } from "next";
-import { dehydrate, QueryClient } from "@tanstack/react-query";
-import { fetchIdiomById } from "../../hooks/useIdioms";
-import { Breadcrumb, Skeleton } from "antd";
-import { useIdioms } from "../../hooks/useIdioms";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+// import { Breadcrumb, Skeleton } from "antd";
 import { ErrorMessage } from "../../components/error/error-message";
 import { List } from "../../components/list/list";
 import styles from "../../styles/idioms/[id].module.css";
+import { useIdioms } from "../../hooks/useIdioms";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { fetchIdiomById } = useIdioms();
+  const id = context.params.id as string;
   const queryClient = new QueryClient();
-  const { id } = context.params;
-  console.log(id);
-  await queryClient.prefetchQuery(["idiomById", id], () =>
-    fetchIdiomById(id as string)
-  );
+  await queryClient.prefetchQuery({
+    queryKey: ["idiomById"],
+    queryFn: () => fetchIdiomById(id),
+  });
   console.log({ context });
 
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
-      id
+      id,
     },
   };
 };
 
-const IdiomPage = ({ id }: { id: string }) => {
+export default function IdiomsPage({ id }) {
   const { getIdiomById } = useIdioms();
-  const { data, isLoading, isError } = getIdiomById(id);
-  console.log(id)
-  const { idiom, meaning, origin, examples, synonyms, source, author } = data;
-  console.log({ data, isError });
-  if (isLoading) return <Skeleton />;
+  const { data, isPending, isError } = getIdiomById(id);
+  console.log({ data, id });
+  // return <Idiom />;
+
+  //   console.log({ data, isError});
+
+  // return <div>{data[0].idiom}</div>
+  // const router = useRouter();
+  // const id = router.query.id as string;
+  // console.log("id2", id)
+  // if (isLoading) return <Skeleton />;
+  if (isPending) return <div>Loading...</div>;
   if (isError || !data) return <ErrorMessage />;
+  const { idiom, meaning, origin, examples, synonyms, source, author } = data;
 
   const breadcrumbItems = [
     {
@@ -44,7 +52,7 @@ const IdiomPage = ({ id }: { id: string }) => {
 
   return (
     <>
-      <Breadcrumb items={breadcrumbItems} className={styles.breadcrumb} />
+      {/* <Breadcrumb items={breadcrumbItems} className={styles.breadcrumb} /> */}
       <div className={styles.container}>
         <h1>{idiom}</h1>
         <p>{meaning}</p>
@@ -60,6 +68,4 @@ const IdiomPage = ({ id }: { id: string }) => {
       </div>
     </>
   );
-};
-
-export default IdiomPage;
+}

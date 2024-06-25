@@ -2,7 +2,7 @@ import React from "react";
 import { Divider, Input } from "antd";
 import styles from "../styles/homepage/index.module.css";
 
-const HomePage = () => {
+export default function HomePage() {
   const { Search } = Input;
   return (
     <main>
@@ -48,5 +48,3 @@ const HomePage = () => {
     </main>
   );
 };
-
-export default HomePage;
