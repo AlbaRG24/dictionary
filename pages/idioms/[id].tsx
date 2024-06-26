@@ -9,7 +9,7 @@ import { useIdioms } from "../../hooks/useIdioms";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { fetchIdiomById } = useIdioms();
-  const id = context.params.id as string;
+  const id = context?.params?.id as string;
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
     queryKey: ["idiomById"],
@@ -25,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-export default function IdiomsPage({ id }) {
+export default function IdiomsPage({ id }: { id: string }) {
   const { getIdiomById } = useIdioms();
   const { data, isPending, isError } = getIdiomById(id);
   console.log({ data, id });

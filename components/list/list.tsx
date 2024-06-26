@@ -1,15 +1,11 @@
-export const List = ({ list }) => {
+export const List = ({ list }: { list: Array<string> }) => {
   return (
     <div>
-      {list ? (
-        <ul>
-          {list?.map((item, index) => (
-            <li key={index + 1}>{item}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>No {list} available</p>
-      )}
+      <ul>
+        {list?.map((item: string, index: number) => (
+          <li key={index + 1}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 };

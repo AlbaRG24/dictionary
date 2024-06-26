@@ -4,27 +4,25 @@ export type Entry = {
   id: string;
   idiom: string;
   meaning: string;
-  origin?: string;
+  origin: string;
   examples: string[];
-  synonyms?: string[];
+  synonyms: string[];
   source: string;
   author: string;
 };
 
-const idiomsUrl = "http://localhost:4000/idioms";
+const endpoint = process.env.API_BASE_URL as string;
 
 export const useIdioms = () => {
   const fetchIdioms = async (): Promise<Entry[]> => {
-    const response = await fetch(idiomsUrl);
+    const response = await fetch(endpoint);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
     return response.json();
   };
   const fetchIdiomById = async (id: string): Promise<Entry> => {
-    console.log(`Fetching idiom with ID: `);
-    const response = await fetch(`${idiomsUrl}/${id}`);
-    console.log({ response });
+    const response = await fetch(`${endpoint}/${id}`);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
