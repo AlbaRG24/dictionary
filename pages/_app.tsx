@@ -24,9 +24,9 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <QueryClientProvider client={queryClient}>
       <HydrationBoundary state={pageProps.dehydratedState}>
-        {/* <Layout> */}
+        <Layout>
           <Component {...pageProps} state={pageProps.dehydratedState} />
-        {/* </Layout> */}
+        </Layout>
       </HydrationBoundary>
     </QueryClientProvider>
   );

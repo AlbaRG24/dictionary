@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import React from "react";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
-// import { Breadcrumb } from "antd";
+import { Breadcrumb } from "antd";
 import styles from "../../styles/idioms/index.module.css";
 import Idioms from "../../components/idioms/idioms";
 import { useIdioms } from "../../hooks/useIdioms";
@@ -29,7 +29,7 @@ export default function IdiomsPage() {
   ];
   return (
     <>
-      {/* <Breadcrumb items={breadcrumbItems} className={styles.breadcrumb}/> */}
+      <Breadcrumb items={breadcrumbItems} className={styles.breadcrumb}/>
       <Idioms />
     </>
   );

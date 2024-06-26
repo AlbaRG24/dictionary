@@ -1,7 +1,7 @@
 import React from "react";
 import { GetServerSideProps } from "next";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
-// import { Breadcrumb, Skeleton } from "antd";
+import { Breadcrumb, Skeleton } from "antd";
 import { ErrorMessage } from "../../components/error/error-message";
 import { List } from "../../components/list/list";
 import styles from "../../styles/idioms/[id].module.css";
@@ -28,17 +28,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 export default function IdiomsPage({ id }: { id: string }) {
   const { getIdiomById } = useIdioms();
   const { data, isPending, isError } = getIdiomById(id);
-  console.log({ data, id });
-  // return <Idiom />;
-
-  //   console.log({ data, isError});
-
-  // return <div>{data[0].idiom}</div>
-  // const router = useRouter();
-  // const id = router.query.id as string;
-  // console.log("id2", id)
-  // if (isLoading) return <Skeleton />;
-  if (isPending) return <div>Loading...</div>;
+  if (isPending) return <Skeleton />;
   if (isError || !data) return <ErrorMessage />;
   const { idiom, meaning, origin, examples, synonyms, source, author } = data;
 
@@ -52,7 +42,7 @@ export default function IdiomsPage({ id }: { id: string }) {
 
   return (
     <>
-      {/* <Breadcrumb items={breadcrumbItems} className={styles.breadcrumb} /> */}
+      <Breadcrumb items={breadcrumbItems} className={styles.breadcrumb} />
       <div className={styles.container}>
         <h1>{idiom}</h1>
         <p>{meaning}</p>
