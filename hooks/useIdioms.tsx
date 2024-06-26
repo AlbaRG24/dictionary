@@ -11,18 +11,18 @@ export type Entry = {
   author: string;
 };
 
-const endpoint = process.env.API_BASE_URL as string;
+const idiomsUrl = process.env.NEXT_PUBLIC_API_BASE_URL as string
 
 export const useIdioms = () => {
   const fetchIdioms = async (): Promise<Entry[]> => {
-    const response = await fetch(endpoint);
+    const response = await fetch(idiomsUrl);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
     return response.json();
   };
   const fetchIdiomById = async (id: string): Promise<Entry> => {
-    const response = await fetch(`${endpoint}/${id}`);
+    const response = await fetch(`${idiomsUrl}/${id}`);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }

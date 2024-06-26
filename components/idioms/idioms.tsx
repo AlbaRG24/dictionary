@@ -53,9 +53,8 @@ export default function Idioms() {
         renderItem={renderItem}
       /> */}
       {data.map((item) => (
-        <li>
+        <li key={item.id}>
           <Link
-            key={item.id}
             href={`/idioms/${item.id}`}
             aria-label={`View details for idiom: ${item.idiom}`}
             passHref
