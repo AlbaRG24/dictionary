@@ -15,7 +15,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     queryKey: ["idiomById"],
     queryFn: () => fetchIdiomById(id),
   });
-  console.log({ context });
 
   return {
     props: {

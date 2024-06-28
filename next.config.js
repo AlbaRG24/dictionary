@@ -1,6 +1,8 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+const webpackDefaultConditions = ['browser', 'module', 'import', 'require'];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: [
@@ -42,6 +44,10 @@ const nextConfig = {
   ],
   env: {
     NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
+  },
+  webpack(config) {
+    config.resolve.conditionNames = ['node', ...webpackDefaultConditions];
+    return config;
   },
 };
 
