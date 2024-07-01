@@ -2,8 +2,6 @@ import { setupServer } from "msw/node";
 import { handlers } from "./handlers";
 
 export const server = setupServer(...handlers);
-// server.events.on("request:start", ({ request }) => {
-//   console.log("Outgoing:", request.url);
   server.events.on('request:start', ({ request }) => {
     console.log('Request started:', request.url);
   });
@@ -15,9 +13,5 @@ export const server = setupServer(...handlers);
   server.events.on('request:unhandled', ({ request }) => {
     console.error('Found an unhandled %s request to %s', request.url);
   });
-  
-  server.events.on('request:complete', ({ request }) => {
-    console.log('Request completed:', request.url);
-  });
-// });
+
 
