@@ -5,3 +5,6 @@
 .breadcrumb {
   padding: var(--padding) var(--padding) 0;
 }
+.smallText{
+  text-align: end;
+}

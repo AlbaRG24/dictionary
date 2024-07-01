@@ -11,7 +11,7 @@ export type Entry = {
   author: string;
 };
 
-const idiomsUrl = "http://localhost:4000"
+const idiomsUrl = process.env.NEXT_PUBLIC_API_BASE_URL as string;
 
 export const useIdioms = () => {
   const fetchIdioms = async (): Promise<Entry[]> => {
@@ -35,5 +35,5 @@ export const useIdioms = () => {
       queryKey: ["idiomById", id],
       queryFn: () => fetchIdiomById(id),
     });
-    return { getIdioms, getIdiomById, fetchIdioms, fetchIdiomById };
-  };
+  return { getIdioms, getIdiomById, fetchIdioms, fetchIdiomById };
+};

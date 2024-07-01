@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const idiomsUrl = "http://localhost:4000"
+const idiomsUrl = process.env.NEXT_PUBLIC_API_BASE_URL
 
 const allIdioms = new Array();
 allIdioms.push({
@@ -32,8 +32,7 @@ export const handlers = [
       },
     ]);
   }),
-  http.get(`${idiomsUrl}/idioms/:id`, ({ params }) => {
-    const { id } = params;
+  http.get(`${idiomsUrl}/idioms/:id`, () => {
     const idiom = allIdioms[0];
     console.log({ idiom });
     return HttpResponse.json(idiom);

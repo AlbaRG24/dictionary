@@ -1,6 +1,6 @@
 import React from "react";
 import { GetServerSideProps } from "next";
-import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { Breadcrumb, Skeleton } from "antd";
 import { ErrorMessage } from "../../components/error/error-message";
 import { List } from "../../components/list/list";
@@ -53,7 +53,7 @@ export default function IdiomsPage({ id }: { id: string }) {
         <List list={synonyms} />
         <h2>Source</h2>
         <p>{source}</p>
-        <small>{author}</small>
+        <small className={styles.smallText}>Added by {author}</small>
       </div>
     </>
   );
