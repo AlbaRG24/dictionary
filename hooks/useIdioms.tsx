@@ -11,7 +11,7 @@ export type Entry = {
   author: string;
 };
 
-const idiomsUrl = process.env.NEXT_PUBLIC_API_BASE_URL as string
+const idiomsUrl = "http://localhost:4000"
 
 export const useIdioms = () => {
   const fetchIdioms = async (): Promise<Entry[]> => {

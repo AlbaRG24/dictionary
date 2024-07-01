@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const idiomsUrl = process.env.NEXT_PUBLIC_API_BASE_URL as string;
+const idiomsUrl = "http://localhost:4000"
 
 const allIdioms = new Array();
 allIdioms.push({
