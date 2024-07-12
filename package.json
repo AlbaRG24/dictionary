@@ -20,6 +20,7 @@
     "dotenv": "^16.4.5",
     "json-server": "^1.0.0-beta.1",
     "next": "^14.2.4",
+    "next-auth": "^4.24.7",
     "next-transpile-modules": "^10.0.1",
     "nock": "^13.5.4",
     "npm": "^10.8.1",

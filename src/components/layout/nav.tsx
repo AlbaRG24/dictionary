@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import styles from "./header.module.css";
+import styles from "./nav.module.css";
 import { Layout, Menu, Button, ConfigProvider, MenuProps } from "antd";
 import { MenuOutlined, UserOutlined, HeartOutlined } from "@ant-design/icons";
 import { ItemType } from "antd/es/menu/interface";
+import { signIn, useSession } from "next-auth/react";
+import Link from "next/link";
+import { signOut } from "next-auth/react";
 
-export const Header = () => {
+export const Nav = () => {
   const { Header } = Layout;
   const [collapsed, setCollapsed] = useState(true);
   const [current, setCurrent] = useState("Search");
+  const { data: session } = useSession();
 
   const items: ItemType[] = [
     {
@@ -21,6 +25,18 @@ export const Header = () => {
     {
       label: "Contribute",
       key: "3",
+    },
+    {
+      label: (
+        <Button
+          onClick={() => {
+            signOut({ callbackUrl: "/", redirect: true });
+          }}
+        >
+          Sign out
+        </Button>
+      ),
+      key: "4",
     },
   ];
   const onClick: MenuProps["onClick"] = (e) => {
@@ -37,8 +53,8 @@ export const Header = () => {
             activeBarBorderWidth: 0,
           },
           Layout: {
-            headerBg: "#164773"
-          }
+            headerBg: "#164773",
+          },
         },
       }}
     >
@@ -67,9 +83,28 @@ export const Header = () => {
           </div>
           <div className={styles.navItem}>
             <HeartOutlined className={styles.icon}></HeartOutlined>
-            <UserOutlined
-              className={`${styles.icon} ${styles.paddedIcon}`}
-            ></UserOutlined>
+            {session?.user ? (
+              <>
+                <Link href="/my-account" className={styles.signInLink}>
+                  <img
+                    className={styles.signInImage}
+                    src={session?.user?.image}
+                  />
+                </Link>
+              </>
+            ) : (
+              <Button
+                icon={
+                  <UserOutlined
+                    className={`${styles.icon} ${styles.paddedIcon}`}
+                    style={{ fontSize: "22px" }}
+                  />
+                }
+                onClick={() => signIn()}
+                className={`${styles.btn} ${styles.navItem}`}
+                type="text"
+              ></Button>
+            )}
           </div>
         </nav>
       </Header>
