@@ -28,13 +28,14 @@ export const Nav = () => {
     },
     {
       label: (
-        <Button
+        <Link
+          href="/"
           onClick={() => {
-            signOut({ callbackUrl: "/", redirect: true });
+            signOut();
           }}
         >
           Sign out
-        </Button>
+        </Link>
       ),
       key: "4",
     },
