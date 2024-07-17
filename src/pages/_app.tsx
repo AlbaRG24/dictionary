@@ -7,8 +7,11 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 import React from "react";
+import { usePathname } from "next/navigation";
 
 const App = ({ Component, pageProps }: AppProps) => {
+  const pathname = usePathname();
+  console.log(pathname);
   const [queryClient] = React.useState(
     () =>
       new QueryClient({
@@ -24,9 +27,13 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <QueryClientProvider client={queryClient}>
       <HydrationBoundary state={pageProps.dehydratedState}>
+        {pathname !== "/auth/signin" ? (
           <Layout {...pageProps}>
             <Component {...pageProps} state={pageProps.dehydratedState} />
           </Layout>
+        ) : (
+          <Component {...pageProps} state={pageProps.dehydratedState} />
+        )}
       </HydrationBoundary>
     </QueryClientProvider>
   );
