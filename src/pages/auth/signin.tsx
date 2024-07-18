@@ -6,7 +6,7 @@ import { getProviders, signIn, useSession } from "next-auth/react";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../api/auth/[...nextauth]";
 import styles from "../../styles/signin/signin.module.css";
-import SignInButton from "../../components/button/button";
+import SignInButton from "../../components/sign-in-button/sign-in-button";
 
 export default function SignIn({
   providers,

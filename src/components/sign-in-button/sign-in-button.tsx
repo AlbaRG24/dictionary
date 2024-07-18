@@ -1,4 +1,4 @@
-import styles from "./button.module.css";
+import styles from "./sign-in-button.module.css";
 import { signIn } from "next-auth/react";
 
 const SignInButton = ({ id }: { id: string }) => {
