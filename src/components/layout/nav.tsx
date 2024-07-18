@@ -87,10 +87,16 @@ export const Nav = () => {
             {session?.user ? (
               <>
                 <Link href="/my-account" className={styles.signInLink}>
-                  <img
-                    className={styles.signInImage}
-                    src={session?.user?.image}
-                  />
+                  {session?.user?.image ? (
+                    <img
+                      className={styles.signInImage}
+                      src={session?.user?.image}
+                    />
+                  ) : (
+                    <div className={styles.userImagePlaceholder}>
+                      {session?.user?.name?.charAt(0)}
+                    </div>
+                  )}
                 </Link>
               </>
             ) : (
