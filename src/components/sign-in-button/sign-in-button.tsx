@@ -3,10 +3,10 @@ import { signIn } from "next-auth/react";
 
 const SignInButton = ({ id }: { id: string }) => {
   return (
-    <button className={styles.gsimaterialbutton} onClick={() => signIn(id)}>
-      <div className={styles.gsimaterialbuttonstate}></div>
-      <div className={styles.gsimaterialbuttoncontentwrapper}>
-        <div className={styles.gsimaterialbuttonicon}>
+    <button className={styles.gsiMaterialButton} onClick={() => signIn(id)}>
+      <div className={styles.gsiMaterialButtonState}></div>
+      <div className={styles.gsiMaterialButtonContentWrapper}>
+        <div className={styles.gsiMaterialButtonIcon}>
           <svg
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ const SignInButton = ({ id }: { id: string }) => {
             <path fill="none" d="M0 0h48v48H0z"></path>
           </svg>
         </div>
-        <span className={styles.gsimaterialbuttoncontents}>
+        <span className={styles.gsiMaterialButtonContents}>
           Sign in with Google
         </span>
         <span style={{ display: "none" }}>Sign in with Google</span>
