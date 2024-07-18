@@ -1,0 +1,12 @@
+.container {
+  width: 380px;
+  margin: 0 auto;
+  padding-top: var(--padding);
+}
+.url {
+  text-decoration: none;
+  color: inherit;
+}
+.list {
+  list-style: none;
+}
