@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Nav } from "./nav";
+import { Nav } from "./nav/nav";
 import styles from "./layout.module.css";
 import { SessionProvider } from "next-auth/react";
 import { Session } from "next-auth";

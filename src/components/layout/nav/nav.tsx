@@ -83,17 +83,27 @@ export const Nav = () => {
             />
           </div>
           <div className={styles.navItem}>
-            <HeartOutlined className={styles.icon}></HeartOutlined>
-            {session?.user ? (
+            <Button
+              icon={
+                <HeartOutlined
+                  className={`${styles.icon} ${styles.paddedIcon}`}
+                  style={{ fontSize: "22px" }}
+                />
+              }
+              className={`${styles.btn} ${styles.navItem}`}
+              type="text"
+            ></Button>{" "}
+            {session ? (
               <>
-                <Link href="/my-account" className={styles.signInLink}>
+                <Link href="/my-account" className={styles.signInLink} aria-label="link to my account">
                   {session?.user?.image ? (
                     <img
                       className={styles.signInImage}
                       src={session?.user?.image}
+                      aria-label="user profile image"
                     />
                   ) : (
-                    <div className={styles.userImagePlaceholder}>
+                    <div className={styles.userImagePlaceholder} aria-label="user profile image placeholder">
                       {session?.user?.name?.charAt(0)}
                     </div>
                   )}
