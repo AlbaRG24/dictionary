@@ -14,14 +14,14 @@ export default function SignIn({
   return (
     <>
       {Object.values(providers).map((provider) => (
-        <div className={styles.container}>
-          <div key={provider.name} className={styles.left}>
+        <div key={provider.id} className={styles.container}>
+          <div className={styles.left}>
             <p className={styles.paragraph}>
               "Language is the road map of a culture. It tells you where its
               people come from and where they are going." – Rita Mae Brown
             </p>
           </div>
-          <div key={provider.name} className={styles.right}>
+          <div className={styles.right}>
             <h1>Your Knowledge Matters</h1>
             <h4>Sign-in to contribute</h4>
             <SignInButton id={provider.id as string} />
