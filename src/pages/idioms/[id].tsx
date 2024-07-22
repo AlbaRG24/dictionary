@@ -32,7 +32,7 @@ export default function IdiomsPage({ id }: { id: string }) {
 
   const breadcrumbItems = [
     {
-      title: <a href="/">Search</a>,
+      title: <a href="/">Home</a>,
     },
     { title: <a href="/idioms">A-Z</a> },
     { title: <a href={`/idioms/${id}`}>{idiom}</a> },

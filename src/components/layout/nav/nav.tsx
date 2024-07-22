@@ -23,7 +23,7 @@ export const Nav = () => {
       key: "2",
     },
     {
-      label: "Contribute",
+      label:<a href="/contribute">Contribute</a>,
       key: "3",
     },
     {

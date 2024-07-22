@@ -1,0 +1,24 @@
+.breadcrumb {
+  padding: var(--padding) var(--padding) 0;
+}
+
+.formContainer {
+  margin: 0 auto;
+  align-content: center;
+  max-width: 600px;
+}
+
+.introduction {
+  text-align: start;
+  padding-top: var(--padding);
+}
+
+.form {
+  text-align: start;
+  max-width: 600px;
+  padding-top: var(--padding);
+}
+
+.button {
+  background-color: var(--accent-color);
+}
