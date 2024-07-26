@@ -22,3 +22,20 @@
 .button {
   background-color: var(--accent-color);
 }
+.fieldItemContainer {
+  display: flex;
+  margin-bottom: 8px;
+  height: 32px;
+}
+.exampleFormItem {
+  width: 100%;
+}
+.removeItemIcon {
+  margin-left: 8px;
+}
+.smallInputField {
+  width: 49%;
+}
+.marginRight {
+  margin-right: 4px;
+}
