@@ -2,7 +2,7 @@ import React from "react";
 import { GetServerSideProps } from "next";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { Breadcrumb, Skeleton } from "antd";
-import { ErrorMessage } from "../../components/error/error-message";
+import { IdiomsErrorMessage } from "../../components/messages/idioms/idioms-error-message";
 import styles from "../../styles/idioms/[id].module.css";
 import { Synonym, useIdioms } from "../../hooks/useIdioms";
 
@@ -27,7 +27,7 @@ export default function IdiomsPage({ id }: { id: string }) {
   const { getIdiomById } = useIdioms();
   const { data, isPending, isError } = getIdiomById(id);
   if (isPending) return <Skeleton />;
-  if (isError || !data) return <ErrorMessage />;
+  if (isError || !data) return <IdiomsErrorMessage />;
   const { idiom, meaning, origin, examples, synonyms, source, author } = data;
 
   const breadcrumbItems = [

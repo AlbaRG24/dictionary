@@ -1,6 +1,6 @@
 import { Result } from "antd";
 
-export const SuccessMessage = () => (
+export const FormSuccessMessage = () => (
   <Result
     status="success"
     title="Your entry has been successfully saved!"

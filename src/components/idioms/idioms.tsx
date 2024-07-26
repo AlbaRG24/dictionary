@@ -3,13 +3,13 @@ import { Entry, useIdioms } from "../../hooks/useIdioms";
 import styles from "./idioms.module.css";
 import React from "react";
 import { Skeleton } from "antd";
-import { ErrorMessage } from "../error/error-message";
+import { IdiomsErrorMessage } from "../messages/idioms/idioms-error-message";
 
 export default function Idioms() {
   const { getIdioms } = useIdioms();
   const { data, isPending, isError } = getIdioms();
   if (isPending) return <Skeleton />;
-  if (isError || !data) return <ErrorMessage />;
+  if (isError || !data) return <IdiomsErrorMessage />;
 
   const alphabeticallySortedIdiomsList = data.sort((a, b) => {
     const idiomA = a.idiom.toLowerCase();

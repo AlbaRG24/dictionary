@@ -9,8 +9,8 @@ import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import uuid from "uuid-random";
 import { ValidateErrorEntity } from "rc-field-form/lib/interface";
 import { FormItem } from "../../components/form/FormItem";
-import { SuccessMessage } from "../../components/messages/success-message";
-import { FailureMessage } from "../../components/messages/failure-message";
+import { FormSuccessMessage } from "../../components/messages/form-success-message";
+import { FormFailureMessage } from "../../components/messages/form-failure-message";
 
 const idiomsUrl = process.env.NEXT_PUBLIC_API_BASE_URL as string;
 
@@ -58,9 +58,9 @@ export default function ContributePage() {
     <main>
       <Breadcrumb items={breadcrumbItems} className={styles.breadcrumb} />
       {mutation.isSuccess ? (
-        <SuccessMessage />
+        <FormSuccessMessage />
       ) : mutation.isError ? (
-        <FailureMessage />
+        <FormFailureMessage />
       ) : (
         <div className={styles.formContainer}>
           <p className={styles.introduction}>
