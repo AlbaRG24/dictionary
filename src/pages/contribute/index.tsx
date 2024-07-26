@@ -81,7 +81,6 @@ export default function ContributePage() {
               name="entry"
               labelCol={{ span: 4 }}
               wrapperCol={{ span: 16 }}
-              style={{ maxWidth: 600 }}
               onFinish={onFinish}
               onFinishFailed={onFinishFailed}
               autoComplete="off"
@@ -95,26 +94,28 @@ export default function ContributePage() {
                 <Form.List name="examples">
                   {(fields, { add, remove }) => (
                     <>
-                      <div>
-                        {fields.map(({ key, name, ...restField }) => (
-                          <div key={key}>
-                            <Form.Item
-                              key={key}
-                              name={name}
-                              {...restField}
-                              rules={[
-                                {
-                                  required: true,
-                                  message: `Please provide at least 1 example`,
-                                },
-                              ]}
-                            >
-                              <Input placeholder="example" />
-                            </Form.Item>
-                            <MinusCircleOutlined onClick={() => remove(name)} />
-                          </div>
-                        ))}
-                      </div>
+                      {fields.map(({ key, name, ...restField }) => (
+                        <div key={key} className={styles.fieldItemContainer}>
+                          <Form.Item
+                            key={key}
+                            name={name}
+                            {...restField}
+                            className={styles.exampleFormItem}
+                            rules={[
+                              {
+                                required: true,
+                                message: `Please provide at least 1 example`,
+                              },
+                            ]}
+                          >
+                            <Input placeholder="example" />
+                          </Form.Item>
+                          <MinusCircleOutlined
+                            onClick={() => remove(name)}
+                            className={styles.removeItemIcon}
+                          />
+                        </div>
+                      ))}
                       <Form.Item>
                         <Button
                           type="dashed"
@@ -133,48 +134,46 @@ export default function ContributePage() {
                 <Form.List name="synonyms">
                   {(fields, { add, remove }) => (
                     <>
-                      <div>
-                        {fields.map(({ key, name, ...restField }) => (
-                          <div
-                            key={key}
-                            style={{ display: "flex", marginBottom: 8 }}
+                      {fields.map(({ key, name, ...restField }) => (
+                        <div key={key} className={styles.fieldItemContainer}>
+                          <Form.Item
+                            {...restField}
+                            name={[name, "word"]}
+                            noStyle
+                            rules={[
+                              {
+                                required: true,
+                                message: "Please input a synonym",
+                              },
+                            ]}
                           >
-                            <Form.Item
-                              {...restField}
-                              name={[name, "word"]}
-                              noStyle
-                              rules={[
-                                {
-                                  required: true,
-                                  message: "Please input a synonym",
-                                },
-                              ]}
-                            >
-                              <Input
-                                style={{ width: "50%" }}
-                                placeholder="synonym"
-                              />
-                            </Form.Item>
-                            <Form.Item
-                              {...restField}
-                              name={[name, "url"]}
-                              noStyle
-                              rules={[
-                                {
-                                  required: true,
-                                  message: "Please input the URL",
-                                },
-                              ]}
-                            >
-                              <Input
-                                style={{ width: "50%" }}
-                                placeholder="URL"
-                              />
-                            </Form.Item>
-                            <MinusCircleOutlined onClick={() => remove(name)} />
-                          </div>
-                        ))}
-                      </div>
+                            <Input
+                              className={`${styles.smallInputField} ${styles.marginRight}`}
+                              placeholder="synonym"
+                            />
+                          </Form.Item>
+                          <Form.Item
+                            {...restField}
+                            name={[name, "url"]}
+                            noStyle
+                            rules={[
+                              {
+                                required: true,
+                                message: "Please input the URL",
+                              },
+                            ]}
+                          >
+                            <Input
+                              className={styles.smallInputField}
+                              placeholder="URL"
+                            />
+                          </Form.Item>
+                          <MinusCircleOutlined
+                            onClick={() => remove(name)}
+                            className={styles.removeItemIcon}
+                          />
+                        </div>
+                      ))}
                       <Form.Item>
                         <Button
                           type="dashed"
@@ -197,14 +196,20 @@ export default function ContributePage() {
                     { required: true, message: "Please input the source name" },
                   ]}
                 >
-                  <Input style={{ width: "50%" }} placeholder="Source" />
+                  <Input
+                    className={`${styles.smallInputField} ${styles.marginRight}`}
+                    placeholder="Source"
+                  />
                 </Form.Item>
                 <Form.Item
                   name={["source", "url"]}
                   noStyle
                   rules={[{ required: true, message: "Please input the URL" }]}
                 >
-                  <Input style={{ width: "50%" }} placeholder="URL" />
+                  <Input
+                    className={styles.smallInputField}
+                    placeholder="URL"
+                  />
                 </Form.Item>
               </Form.Item>
               <Form.Item wrapperCol={{ offset: 11, span: 16 }}>
