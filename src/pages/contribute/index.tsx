@@ -1,109 +1,226 @@
 import Breadcrumb from "antd/es/breadcrumb";
 import styles from "../../styles/contribute/index.module.css";
-import { Form, Input, Button, FormProps, ConfigProvider } from "antd";
+import { Form, Input, Button, ConfigProvider } from "antd";
 import { Entry } from "../../hooks/useIdioms";
-import TextArea from "antd/es/input/TextArea";
-import FormList from "../../components/form/form-list/form-list";
+import { useMutation } from "@tanstack/react-query";
+import React from "react";
+import { useSession } from "next-auth/react";
+import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import uuid from "uuid-random";
+import { ValidateErrorEntity } from "rc-field-form/lib/interface";
+import { FormItem } from "../../components/form/FormItem";
+import { SuccessMessage } from "../../components/messages/success-message";
+import { FailureMessage } from "../../components/messages/failure-message";
+
+const idiomsUrl = process.env.NEXT_PUBLIC_API_BASE_URL as string;
 
 export default function ContributePage() {
+  const { data: session } = useSession();
   const breadcrumbItems = [
     { title: <a href="/">Home</a> },
     { title: <a href="/contribute">Contribute</a> },
   ];
 
-  const onFinish: FormProps<Entry>["onFinish"] = (values) => {
-    console.log("Success:", values);
+  const postIdiom = (entry: Entry) => {
+    const response = fetch(`${idiomsUrl}/idioms`, {
+      method: "POST",
+      body: JSON.stringify(entry),
+    });
+    return response;
   };
 
-  const onFinishFailed: FormProps<Entry>["onFinishFailed"] = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+  const mutation = useMutation({
+    mutationFn: postIdiom,
+  });
+
+  const onFinish = (values: any) => {
+    console.log("Successful mutation: ", values);
+    mutation.mutate({
+      id: uuid(),
+      idiom: values.idiom,
+      meaning: values.meaning,
+      origin: values.origin,
+      examples: values.examples,
+      synonyms: values.synonyms,
+      source: values.source,
+      author: session?.user?.name || "unknown author",
+    });
   };
+
+  const onFinishFailed = (errorInfo: ValidateErrorEntity<Entry>) => {
+    console.log(
+      "Form submission failed. Please check your input and try again.",
+      errorInfo
+    );
+  };
+
   return (
     <main>
       <Breadcrumb items={breadcrumbItems} className={styles.breadcrumb} />
-      <div className={styles.formContainer}>
-        <p className={styles.introduction}>
-          We appreciate your contribution to our Idioms Dictionary. Your input
-          helps us create a richer and more comprehensive resource for everyone.
-        </p>
-        <ConfigProvider
-          theme={{
-            components: {
-              Form: {
-                labelColor: "#164773",
-                borderRadius: 5,
+      {mutation.isSuccess ? (
+        <SuccessMessage />
+      ) : mutation.isError ? (
+        <FailureMessage />
+      ) : (
+        <div className={styles.formContainer}>
+          <p className={styles.introduction}>
+            We appreciate your contribution. Your input helps us create a richer
+            and more comprehensive resource for everyone.
+          </p>
+          <ConfigProvider
+            theme={{
+              components: {
+                Form: {
+                  labelColor: "#164773",
+                  borderRadius: 5,
+                },
               },
-            },
-          }}
-        >
-          <Form
-            name="idiom"
-            labelCol={{ span: 4 }}
-            wrapperCol={{ span: 16 }}
-            style={{ maxWidth: 600 }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
-            className={styles.form}
+            }}
           >
-            <Form.Item<Entry>
-              label="idiom"
-              name="idiom"
-              rules={[
-                {
-                  required: true,
-                  message: "Please provide an idiom",
-                },
-              ]}
+            <Form<Entry>
+              name="entry"
+              labelCol={{ span: 4 }}
+              wrapperCol={{ span: 16 }}
+              style={{ maxWidth: 600 }}
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+              autoComplete="off"
+              className={styles.form}
             >
-              <Input />
-            </Form.Item>
+              <FormItem name="idiom" type="input" />
+              <FormItem name="meaning" type="text" />
+              <FormItem name="origin" type="text" />
 
-            <Form.Item<Entry>
-              label="meaning"
-              name="meaning"
-              rules={[{ required: true, message: "What does the idiom mean?" }]}
-            >
-              <TextArea rows={4} />
-            </Form.Item>
-
-            <Form.Item<Entry>
-              label="origin"
-              name="origin"
-              rules={[
-                { required: true, message: "Please tell us about the origin" },
-              ]}
-            >
-              <TextArea rows={4} />
-            </Form.Item>
-            <FormList listName="examples" />
-            <FormList listName="synonyms" />
-            <Form.Item<Entry>
-              label="source"
-              name="source"
-              rules={[
-                {
-                  required: true,
-                  message: "Please provide an idiom",
-                },
-              ]}
-            >
-              <Input />
-            </Form.Item>
-
-            <Form.Item wrapperCol={{ offset: 11, span: 16 }}>
-              <Button
-                type="primary"
-                htmlType="submit"
-                className={styles.button}
-                shape="round"
-              >
-                Add
-              </Button>
-            </Form.Item>
-          </Form>
-        </ConfigProvider>
-      </div>
+              <Form.Item label="examples" required={true}>
+                <Form.List name="examples">
+                  {(fields, { add, remove }) => (
+                    <>
+                      <div>
+                        {fields.map(({ key, name, ...restField }) => (
+                          <div key={key}>
+                            <Form.Item
+                              key={key}
+                              name={name}
+                              {...restField}
+                              rules={[
+                                {
+                                  required: true,
+                                  message: `Please provide at least 1 example`,
+                                },
+                              ]}
+                            >
+                              <Input placeholder="example" />
+                            </Form.Item>
+                            <MinusCircleOutlined onClick={() => remove(name)} />
+                          </div>
+                        ))}
+                      </div>
+                      <Form.Item>
+                        <Button
+                          type="dashed"
+                          onClick={() => add()}
+                          block
+                          icon={<PlusOutlined />}
+                        >
+                          Add example
+                        </Button>
+                      </Form.Item>
+                    </>
+                  )}
+                </Form.List>
+              </Form.Item>
+              <Form.Item label="synonyms" required={true} name="synonyms">
+                <Form.List name="synonyms">
+                  {(fields, { add, remove }) => (
+                    <>
+                      <div>
+                        {fields.map(({ key, name, ...restField }) => (
+                          <div
+                            key={key}
+                            style={{ display: "flex", marginBottom: 8 }}
+                          >
+                            <Form.Item
+                              {...restField}
+                              name={[name, "word"]}
+                              noStyle
+                              rules={[
+                                {
+                                  required: true,
+                                  message: "Please input a synonym",
+                                },
+                              ]}
+                            >
+                              <Input
+                                style={{ width: "50%" }}
+                                placeholder="synonym"
+                              />
+                            </Form.Item>
+                            <Form.Item
+                              {...restField}
+                              name={[name, "url"]}
+                              noStyle
+                              rules={[
+                                {
+                                  required: true,
+                                  message: "Please input the URL",
+                                },
+                              ]}
+                            >
+                              <Input
+                                style={{ width: "50%" }}
+                                placeholder="URL"
+                              />
+                            </Form.Item>
+                            <MinusCircleOutlined onClick={() => remove(name)} />
+                          </div>
+                        ))}
+                      </div>
+                      <Form.Item>
+                        <Button
+                          type="dashed"
+                          onClick={() => add()}
+                          block
+                          icon={<PlusOutlined />}
+                        >
+                          Add synonym
+                        </Button>
+                      </Form.Item>
+                    </>
+                  )}
+                </Form.List>
+              </Form.Item>
+              <Form.Item label="Source" required={true}>
+                <Form.Item
+                  name={["source", "name"]}
+                  noStyle
+                  rules={[
+                    { required: true, message: "Please input the source name" },
+                  ]}
+                >
+                  <Input style={{ width: "50%" }} placeholder="Source" />
+                </Form.Item>
+                <Form.Item
+                  name={["source", "url"]}
+                  noStyle
+                  rules={[{ required: true, message: "Please input the URL" }]}
+                >
+                  <Input style={{ width: "50%" }} placeholder="URL" />
+                </Form.Item>
+              </Form.Item>
+              <Form.Item wrapperCol={{ offset: 11, span: 16 }}>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  className={styles.button}
+                  shape="round"
+                >
+                  {mutation.isPending ? <div>Loading...</div> : "Add"}
+                </Button>
+              </Form.Item>
+            </Form>
+          </ConfigProvider>
+        </div>
+      )}
     </main>
   );
 }
