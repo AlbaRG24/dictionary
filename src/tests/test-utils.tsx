@@ -1,12 +1,10 @@
 import React, { ReactElement } from "react";
 import { render, RenderOptions } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import MockSessionProvider from "./mocks/mockSessionProvider";
+import { Session } from "next-auth";
 
-export const Wrapper = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export const Wrapper = ({ children }: { children: React.ReactNode}, session: Session) => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -15,7 +13,9 @@ export const Wrapper = ({
     },
   });
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <MockSessionProvider session={session}>{children}</MockSessionProvider>
+    </QueryClientProvider>
   );
 };
 

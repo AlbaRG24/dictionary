@@ -9,6 +9,7 @@ export default defineConfig({
     coverage: {
       reporter: ["text", "html"],
     },
+    mockReset: true,
     environment: "happy-dom",
   },
 });
