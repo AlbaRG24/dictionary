@@ -1,6 +1,6 @@
 import { Result } from "antd";
 
-export const FailureMessage = () => (
+export const FormFailureMessage = () => (
   <Result
     status="warning"
     title="Something has gone wrong"
