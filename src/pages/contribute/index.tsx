@@ -9,8 +9,8 @@ import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import uuid from "uuid-random";
 import { ValidateErrorEntity } from "rc-field-form/lib/interface";
 import { FormItem } from "../../components/form/FormItem";
-import { FormSuccessMessage } from "../../components/messages/form-success-message";
-import { FormFailureMessage } from "../../components/messages/form-failure-message";
+import { FormSuccessMessage } from "../../components/messages/form/form-success-message";
+import { FormFailureMessage } from "../../components/messages/form/form-failure-message";
 
 const idiomsUrl = process.env.NEXT_PUBLIC_API_BASE_URL as string;
 
