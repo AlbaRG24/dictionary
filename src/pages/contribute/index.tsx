@@ -2,38 +2,25 @@ import Breadcrumb from "antd/es/breadcrumb";
 import styles from "../../styles/contribute/index.module.css";
 import { Form, Input, Button, ConfigProvider, Result } from "antd";
 import { Entry } from "../../hooks/useIdioms";
-import { useMutation } from "@tanstack/react-query";
 import React from "react";
 import { useSession } from "next-auth/react";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import uuid from "uuid-random";
 import { ValidateErrorEntity } from "rc-field-form/lib/interface";
 import { FormItem } from "../../components/form/form-item";
-
-const idiomsUrl = process.env.NEXT_PUBLIC_API_BASE_URL as string;
+import { useIdioms } from "../../hooks/useIdioms";
 
 export default function ContributePage() {
+  const { createIdiomMutation } = useIdioms();
   const { data: session } = useSession();
   const breadcrumbItems = [
     { title: <a href="/">Home</a> },
     { title: <a href="/contribute">Contribute</a> },
   ];
 
-  const postIdiom = (entry: Entry) => {
-    const response = fetch(`${idiomsUrl}/idioms`, {
-      method: "POST",
-      body: JSON.stringify(entry),
-    });
-    return response;
-  };
-
-  const mutation = useMutation({
-    mutationFn: postIdiom,
-  });
-
   const onFinish = (values: any) => {
     console.log("Successful mutation: ", values);
-    mutation.mutate({
+    createIdiomMutation.mutate({
       id: uuid(),
       idiom: values.idiom,
       meaning: values.meaning,
@@ -52,14 +39,14 @@ export default function ContributePage() {
     );
   };
 
-  const statusMessage = mutation.isSuccess ? (
+  const statusMessage = createIdiomMutation.isSuccess ? (
     <Result
       status="success"
       title="Your entry has been successfully saved!"
       subTitle="Thanks for your contribution!"
       extra={[<a href="/contribute">Contribute again</a>]}
     />
-  ) : mutation.isError ? (
+  ) : createIdiomMutation.isError ? (
     <Result
       status="warning"
       title="Something has gone wrong"
@@ -70,7 +57,7 @@ export default function ContributePage() {
   return (
     <main>
       <Breadcrumb items={breadcrumbItems} className={styles.breadcrumb} />
-      {mutation.isSuccess || mutation.isError ? (
+      {createIdiomMutation.isSuccess || createIdiomMutation.isError ? (
         statusMessage
       ) : (
         <div className={styles.formContainer}>
@@ -227,7 +214,11 @@ export default function ContributePage() {
                   className={styles.button}
                   shape="round"
                 >
-                  {mutation.isPending ? <div>Loading...</div> : "Add"}
+                  {createIdiomMutation.isPending ? (
+                    <div>Loading...</div>
+                  ) : (
+                    "Add"
+                  )}
                 </Button>
               </Form.Item>
             </Form>
