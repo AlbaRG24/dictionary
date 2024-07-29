@@ -3,6 +3,7 @@
   --secondary-color: #164773;
   --accent-color: #2d9287;
   --padding: 16px;
+  --light-grey: rgba(0, 0, 0, 0.45);
 }
 
 html {
