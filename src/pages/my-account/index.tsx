@@ -3,15 +3,10 @@ import styles from "../../styles/my-account/index.module.css";
 import { useSession } from "next-auth/react";
 import {
   BulbFilled,
-  ContainerTwoTone,
   EditFilled,
-  EditTwoTone,
   HeartFilled,
-  HeartTwoTone,
-  ProfileOutlined,
   RightOutlined,
   setTwoToneColor,
-  SolutionOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
 
