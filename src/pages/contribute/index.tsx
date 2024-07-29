@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import uuid from "uuid-random";
 import { ValidateErrorEntity } from "rc-field-form/lib/interface";
-import { FormItem } from "../../components/form/FormItem";
+import { FormItem } from "../../components/form/form-item";
 
 const idiomsUrl = process.env.NEXT_PUBLIC_API_BASE_URL as string;
 
