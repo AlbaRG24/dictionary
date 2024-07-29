@@ -1,9 +1,9 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { useIdioms } from "../hooks/useIdioms";
 import { describe, expect, it } from "vitest";
-import { server } from "./mocks/server";
+import { server } from "../tests/mocks/server";
 import { http, HttpResponse } from "msw";
-import { Wrapper } from "./test-utils";
+import { Wrapper } from "../tests/test-utils";
 
 describe("#useIdioms", () => {
   it("getIdioms - successful query hook", async () => {
