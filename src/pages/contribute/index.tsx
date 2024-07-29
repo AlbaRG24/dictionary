@@ -1,6 +1,6 @@
 import Breadcrumb from "antd/es/breadcrumb";
 import styles from "../../styles/contribute/index.module.css";
-import { Form, Input, Button, ConfigProvider } from "antd";
+import { Form, Input, Button, ConfigProvider, Result } from "antd";
 import { Entry } from "../../hooks/useIdioms";
 import { useMutation } from "@tanstack/react-query";
 import React from "react";
@@ -9,8 +9,6 @@ import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import uuid from "uuid-random";
 import { ValidateErrorEntity } from "rc-field-form/lib/interface";
 import { FormItem } from "../../components/form/FormItem";
-import { FormSuccessMessage } from "../../components/messages/form/form-success-message";
-import { FormFailureMessage } from "../../components/messages/form/form-failure-message";
 
 const idiomsUrl = process.env.NEXT_PUBLIC_API_BASE_URL as string;
 
@@ -54,13 +52,26 @@ export default function ContributePage() {
     );
   };
 
+  const statusMessage = mutation.isSuccess ? (
+    <Result
+      status="success"
+      title="Your entry has been successfully saved!"
+      subTitle="Thanks for your contribution!"
+      extra={[<a href="/contribute">Contribute again</a>]}
+    />
+  ) : mutation.isError ? (
+    <Result
+      status="warning"
+      title="Something has gone wrong"
+      extra={<a href="/contribute">Go back</a>}
+    />
+  ) : null;
+
   return (
     <main>
       <Breadcrumb items={breadcrumbItems} className={styles.breadcrumb} />
-      {mutation.isSuccess ? (
-        <FormSuccessMessage />
-      ) : mutation.isError ? (
-        <FormFailureMessage />
+      {mutation.isSuccess || mutation.isError ? (
+        statusMessage
       ) : (
         <div className={styles.formContainer}>
           <p className={styles.introduction}>
@@ -206,10 +217,7 @@ export default function ContributePage() {
                   noStyle
                   rules={[{ required: true, message: "Please input the URL" }]}
                 >
-                  <Input
-                    className={styles.smallInputField}
-                    placeholder="URL"
-                  />
+                  <Input className={styles.smallInputField} placeholder="URL" />
                 </Form.Item>
               </Form.Item>
               <Form.Item wrapperCol={{ offset: 11, span: 16 }}>
