@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 export type Entry = {
   id: string;
@@ -43,5 +43,23 @@ export const useIdioms = () => {
       queryKey: ["idiomById", id],
       queryFn: () => fetchIdiomById(id),
     });
-  return { getIdioms, getIdiomById, fetchIdioms, fetchIdiomById };
+
+  const postIdiom = (entry: Entry) => {
+    const response = fetch(`${idiomsUrl}/idioms`, {
+      method: "POST",
+      body: JSON.stringify(entry),
+    });
+    return response;
+  };
+  const createIdiomMutation = useMutation({
+    mutationFn: postIdiom,
+  });
+  return {
+    getIdioms,
+    getIdiomById,
+    fetchIdioms,
+    fetchIdiomById,
+    postIdiom,
+    createIdiomMutation,
+  };
 };
