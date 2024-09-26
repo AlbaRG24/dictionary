@@ -47,7 +47,7 @@ describe("#idioms", () => {
     render(<Idioms />);
     await screen.findByTestId("error-message");
     expect(screen.getByRole("heading")).toHaveTextContent(
-      "Oops! We Couldn't Find That Word"
+      "We couldn't find it!"
     );
   });
 });

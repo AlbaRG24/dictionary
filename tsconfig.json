@@ -27,5 +27,5 @@
     "**/*.ts",
     "**/*.tsx",
     "next.config.js"
-  ]
+, "src/pages/my-account"  ]
 }

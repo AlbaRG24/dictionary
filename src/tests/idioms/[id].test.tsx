@@ -1,8 +1,8 @@
 import { describe, expect, it, afterEach } from "vitest";
-import { cleanup, render, screen } from "./test-utils";
+import { cleanup, render, screen } from "./../test-utils";
 import { http, HttpResponse } from "msw";
-import IdiomsPage from "../pages/idioms/[id]";
-import { server } from "./mocks/server";
+import IdiomsPage from "../../pages/idioms/[id]";
+import { server } from "../../tests/mocks/server";
 
 afterEach(() => cleanup());
 
@@ -62,7 +62,7 @@ describe("#IdiomsPage", () => {
     render(<IdiomsPage id={"1"} />);
     await screen.findByTestId("error-message");
     expect(screen.getByRole("heading")).toHaveTextContent(
-      "Oops! We Couldn't Find That Word"
+      "Oops! We couldn't find it!"
     );
   });
 });

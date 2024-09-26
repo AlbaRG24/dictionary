@@ -23,7 +23,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 export default function IdiomsPage() {
   const breadcrumbItems = [
     {
-      title: <a href="/">Search</a>,
+      title: <a href="/">Home</a>,
     },
     { title: <a href="/idioms">A-Z</a> },
   ];

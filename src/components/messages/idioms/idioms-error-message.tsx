@@ -1,8 +1,8 @@
-import styles from "./error-message.module.css";
-export const ErrorMessage = () => {
+import styles from "./idioms-error-message.module.css";
+export const IdiomsErrorMessage = () => {
   return (
     <div className={styles.container} data-testid="error-message">
-      <h1>Oops! We Couldn't Find That Word</h1>
+      <h1>Oops! We couldn't find it!</h1>
       <p>
         We're sorry, but the word you're looking for doesn't seem to be in our
         dictionary. Here are a few things you can try:
