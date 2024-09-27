@@ -3,7 +3,7 @@ import { signIn } from "next-auth/react";
 
 const SignInButton = ({ id }: { id: string }) => {
   return (
-    <button className={styles.gsiMaterialButton} onClick={() => signIn(id)}>
+    <button className={styles.gsiMaterialButton} onClick={() => signIn(id, {callbackUrl: ""})}>
       <div className={styles.gsiMaterialButtonState}></div>
       <div className={styles.gsiMaterialButtonContentWrapper}>
         <div className={styles.gsiMaterialButtonIcon}>
