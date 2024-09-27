@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import uuid from "uuid-random";
 import { ValidateErrorEntity } from "rc-field-form/lib/interface";
-import { FormItem } from "../../components/form/form-item";
+import { FormField } from "../../components/form/form-field";
 import { useIdioms } from "../../hooks/useIdioms";
 
 export default function ContributePage() {
@@ -84,9 +84,9 @@ export default function ContributePage() {
               autoComplete="off"
               className={styles.form}
             >
-              <FormItem name="idiom" type="input" />
-              <FormItem name="meaning" type="text" />
-              <FormItem name="origin" type="text" />
+              <FormField name="idiom" type="input" />
+              <FormField name="meaning" type="text" />
+              <FormField name="origin" type="text" />
 
               <Form.Item label="examples" required={true}>
                 <Form.List name="examples">

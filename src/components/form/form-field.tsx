@@ -1,7 +1,7 @@
 import { Form, Input } from "antd";
 import TextArea from "antd/es/input/TextArea";
 
-export const FormItem = ({
+export const FormField = ({
   name,
   type,
 }: {
