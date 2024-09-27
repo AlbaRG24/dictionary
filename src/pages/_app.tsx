@@ -11,7 +11,6 @@ import { usePathname } from "next/navigation";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const pathname = usePathname();
-  console.log(pathname);
   const [queryClient] = React.useState(
     () =>
       new QueryClient({
